@@ -42,7 +42,7 @@ class RandomChar extends Component {
 
   componentDidMount() {
     this.handleUpdateHero();
-    this.timerId = setInterval(this.handleUpdateHero, 3000);
+    // this.timerId = setInterval(this.handleUpdateHero, 3000);
   }
 
   componentWillUnmount() {
@@ -91,9 +91,22 @@ class RandomChar extends Component {
 
 const View = ({ char }) => {
   const { thumbnail, name, description, homepage, wiki } = char;
+  const imgIsNotAvaliable =
+    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
+
+  let classImg = { objectFit: "cover" };
+  if (thumbnail === imgIsNotAvaliable) {
+    classImg = { objectFit: "contain" };
+  }
+
   return (
     <div className="randomchar__block">
-      <img src={thumbnail} alt="Random character" className="randomchar__img" />
+      <img
+        src={thumbnail}
+        alt="Random character"
+        className="randomchar__img"
+        style={classImg}
+      />
       <div className="randomchar__info">
         <p className="randomchar__name">{name}</p>
         <p className="randomchar__descr">{description}</p>
