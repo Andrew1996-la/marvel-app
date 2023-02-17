@@ -1,6 +1,6 @@
 import "./charItem.scss";
 
-const CharItem = ({ img, name }) => {
+const CharItem = ({ img, name, charId, setCharId }) => {
   const imgIsNotAvaliable =
     "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg";
 
@@ -10,7 +10,7 @@ const CharItem = ({ img, name }) => {
   }
 
   return (
-    <li className="char__item">
+    <li onClick={() => setCharId(charId)} className="char__item">
       <img src={img} alt="abyss" style={classImg} />
       <div className="char__name">{name}</div>
     </li>

@@ -2,7 +2,6 @@ import "./charList.scss";
 import CharItem from "./charItem/CharItem";
 import { Component } from "react";
 import MarvelServices from "../../services/MarvelServices";
-import { generateUniqueID } from "web-vitals/dist/modules/lib/generateUniqueID";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 
@@ -13,6 +12,7 @@ class CharList extends Component {
       charList: [],
       loading: true,
       error: false,
+      char: null,
     };
   }
   marvelServices = new MarvelServices();
@@ -42,7 +42,9 @@ class CharList extends Component {
     const charElements = this.state.charList.map((char) => {
       return (
         <CharItem
-          key={generateUniqueID()}
+          setCharId={this.props.setCharId}
+          key={char.id}
+          charId={char.id}
           img={char.thumbnail}
           name={char.name}
         />
