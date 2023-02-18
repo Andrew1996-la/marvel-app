@@ -4,6 +4,7 @@ import Skeleton from "../skeleton/Skeleton";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import MarvelServices from "../../services/MarvelServices";
+import { charValidation } from "../../utils/utils";
 
 class CharInfo extends Component {
   state = {
@@ -76,7 +77,12 @@ class CharInfo extends Component {
 }
 
 const View = ({ char }) => {
-  const { name, homepage, wiki, description, thumbnail, comics } = char;
+  let { name, homepage, wiki, description, thumbnail, comics } = char;
+
+  if (description.length === 0) {
+    description = "There is no description of this hero";
+  }
+
   return (
     <>
       <div className="char__basics">
