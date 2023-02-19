@@ -4,7 +4,6 @@ import Skeleton from "../skeleton/Skeleton";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import MarvelServices from "../../services/MarvelServices";
-import { charValidation } from "../../utils/utils";
 
 class CharInfo extends Component {
   state = {
