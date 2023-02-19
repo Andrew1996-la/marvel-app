@@ -1,4 +1,5 @@
 import "./charList.scss";
+import PropTypes from "prop-types";
 import CharItem from "./charItem/CharItem";
 import { Component } from "react";
 import MarvelServices from "../../services/MarvelServices";
@@ -93,5 +94,9 @@ class CharList extends Component {
     );
   }
 }
+
+CharList.propsTypes = {
+  setCharId: PropTypes.func.isRequired,
+};
 
 export default CharList;
